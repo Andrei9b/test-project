@@ -1,27 +1,42 @@
 <div style="display: flex; gap: 20px; flex-direction: column;">
-  <mat-card color="accent" matRipple>
-    <mat-card-title>
-     Title
-    </mat-card-title>
-    <mat-card-subtitle>3</mat-card-subtitle>
-    <mat-card-content>
-     Subtitle
-    </mat-card-content>
-    <mat-icon>home</mat-icon>
-</mat-card>
 
-<div class="card-container">
-  <h1>Title Container  <mat-icon>close</mat-icon></h1>
- 
-  Please detach component and add the content that you need. The icon from the bottom should be the same with the icon from cluster card that is active
-  <br />
-  Please detach component and add the content that you need. The icon from the bottom should be the same with the icon from cluster card that is active
+  <mat-slide-toggle [(ngModel)]="isCardDisabled" style="width: min-content;">Disable card</mat-slide-toggle>
 
-  <br />
-  <br />
-  Please detach component and add the content that you need. The icon from the bottom should be the same with the icon from cluster card that is active
-  Please detach component and add the content that you need. The icon from the bottom should be the same with the icon from cluster card that is active
-  Please detach component and add the content that you need.
-  <mat-icon>file_copy</mat-icon>
-</div>
+  <mat-card [class.emelentDisabled]="isCardDisabled" [class.active]="isCardActive" color="accent" matRipple (click)="cardActiveStateChanged(!isCardActive)">
+    <div class="overlay-active" *ngIf="isCardActive"></div>  
+    <div class="card-metadata">
+        <mat-card-title>
+          {{cardTitle}}
+        </mat-card-title>
+        <mat-card-content>
+          {{cardSubtitle}}
+        </mat-card-content>
+      </div>
+      <div class="card-number">
+        <mat-card-subtitle>0</mat-card-subtitle>
+      </div>
+    <mat-icon class="material-icons-outlined">file_copy</mat-icon>
+  </mat-card>
+
+  <div class="card-content-container" *ngIf="isCardActive">
+    <div class="content-header">
+      <h1>{{containerTitle}}</h1>
+      <mat-icon class="close-icon" (click)="cardActiveStateChanged(false)">close</mat-icon>
+    </div>
+    <div class="content">
+
+      Please detach component and add the content that you need. The icon from the bottom should be the same with the icon from cluster card that is active
+      <br />
+      <br />
+      Please detach component and add the content that you need. The icon from the bottom should be the same with the icon from cluster card that is active
+      
+      <br />
+      <br />
+      Please detach component and add the content that you need. The icon from the bottom should be the same with the icon from cluster card that is active
+      Please detach component and add the content that you need. The icon from the bottom should be the same with the icon from cluster card that is active
+      Please detach component and add the content that you need.
+    </div>
+    
+    <mat-icon class="file-copy-icon material-icons-outlined">file_copy</mat-icon>
+  </div>
 </div>

@@ -9,25 +9,26 @@
   </ol>
 
   <br />
-  <p>Status mat-card: <b>Afiseaza aici statusul cardului ( open / closed )</b></p>
+  <p>Status mat-card: <b>{{ isCardActive ? 'open' : 'closed'}}</b></p>
   
   <p>Inputuri pentru card-container</p>
 
   <div style="display: flex; flex-direction: column; width: 200px;">
     <mat-form-field class="example-form-field" appearance="fill">
       <mat-label>Title container Input</mat-label>
-      <input matInput type="text" >
+      <input matInput type="text" [(ngModel)]="containerTitle">
     </mat-form-field>
   </div>
 
   <div class="row">
-    <div class="col-md-6">
-      <app-card></app-card>
+    <div class="col-xl-6 col-lg-12">
+      <app-card [cardTitle]="cardTitle" [cardSubtitle]="cardSubtitle" [containerTitle]="containerTitle" (cardState)="cardStateChanged($event)"></app-card>
     </div>
-    <div class="col-md-6">
-      <app-display></app-display>
+    <div class="col-xl-6 col-lg-12">
+      <app-display (titleChanged)="titleChanged($event)" (subtitleChanged)="subtitleChanged($event)"></app-display>
     </div>
+    
   </div>
-  
+
 
 </div>

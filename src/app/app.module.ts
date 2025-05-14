@@ -11,7 +11,8 @@ import {MatRippleModule} from '@angular/material/core';
 import { DisplayComponent } from './components/display/display.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,10 @@ import { MatInputModule } from '@angular/material/input';
     MatIconModule,
     MatRippleModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
